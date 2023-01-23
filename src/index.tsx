@@ -1,23 +1,23 @@
-import '@fontsource/roboto/300.css';
-import '@fontsource/roboto/400.css';
-import '@fontsource/roboto/500.css';
-import '@fontsource/roboto/700.css';
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './components/App/App';
-import reportWebVitals from './reportWebVitals';
-import {Provider} from "react-redux";
-import {store} from "./store";
-import {ApolloProvider} from "@apollo/client";
+import "@fontsource/roboto/300.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./components/App/App";
+import reportWebVitals from "./reportWebVitals";
+import { Provider } from "react-redux";
+import { store } from "./store";
+import { ApolloProvider } from "@apollo/client";
 import client from "./apollo/client";
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 root.render(
   <Provider store={store}>
-    <ApolloProvider client={client} >
+    <ApolloProvider client={client}>
       <App />
     </ApolloProvider>
   </Provider>
