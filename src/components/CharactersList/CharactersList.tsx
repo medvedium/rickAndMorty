@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useQuery } from "@apollo/client";
 import { ALL_CHARACTERS } from "../../apollo/query";
 import Loader from "../Loader/Loader";
@@ -6,13 +6,24 @@ import CharacterCard from "../CharacterCard/CharacterCard";
 import { Grid, Pagination } from "@mui/material";
 
 const CharactersList = () => {
-  const { loading, error, data: characters } = useQuery(ALL_CHARACTERS);
+  const [page, setPage] = useState<number>(1);
+  const {
+    loading,
+    error,
+    data: characters,
+  } = useQuery(ALL_CHARACTERS, { variables: { page: page } });
   let data = [];
-  console.log(characters);
   if (characters) data = characters.characters.results;
   const currentPage = characters?.characters.info?.next
     ? characters?.characters.info?.next - 1
     : characters?.characters.info?.prev + 1;
+
+  const handlePageChange = (
+    event: React.ChangeEvent<unknown>,
+    value: number
+  ) => {
+    setPage(value);
+  };
 
   if (loading) return <Loader />;
   if (error) return <h2>Ошибка загрузки данных</h2>;
@@ -28,6 +39,7 @@ const CharactersList = () => {
         variant="outlined"
         shape="rounded"
         defaultPage={currentPage}
+        onChange={handlePageChange}
       />
     </>
   );
