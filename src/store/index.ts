@@ -1,5 +1,5 @@
 import {configureStore} from "@reduxjs/toolkit";
-import { useDispatch as useAppDispatch } from "react-redux";
+import { useDispatch as useAppDispatch } from "react-redux/es/hooks/useDispatch";
 import {api} from "./api";
 
 export const store = configureStore({

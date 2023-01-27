@@ -3,7 +3,7 @@ import { useQuery } from "@apollo/client";
 import { ALL_CHARACTERS } from "../../apollo/query";
 import Loader from "../Loader/Loader";
 import CharacterCard from "../CharacterCard/CharacterCard";
-import { Grid, Pagination } from "@mui/material";
+import { Grid, Pagination, Stack } from "@mui/material";
 
 const CharactersList = () => {
   const [page, setPage] = useState<number>(1);
@@ -34,13 +34,15 @@ const CharactersList = () => {
           <CharacterCard item={item} key={item.id} />
         ))}
       </Grid>
-      <Pagination
-        count={characters?.characters.info?.pages}
-        variant="outlined"
-        shape="rounded"
-        defaultPage={currentPage}
-        onChange={handlePageChange}
-      />
+      <Stack spacing={2} sx={{ mt: 3, mb: 3 }}>
+        <Pagination
+          count={characters?.characters.info?.pages}
+          variant="outlined"
+          shape="rounded"
+          defaultPage={currentPage}
+          onChange={handlePageChange}
+        />
+      </Stack>
     </>
   );
 };
