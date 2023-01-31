@@ -5,13 +5,13 @@ import "@fontsource/roboto/700.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./components/App/App";
 import { Provider } from "react-redux";
 import { store } from "./store";
 import { ApolloProvider } from "@apollo/client";
 import client from "./apollo/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CharactersList from "./components/CharactersList/CharactersList";
+import Root from "./routes/root";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -20,7 +20,7 @@ const root = ReactDOM.createRoot(
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <Root />,
   },
   {
     path: "/characters",
