@@ -24,8 +24,11 @@ export default function AppHeader() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Rick And Morty API
           </Typography>
-          <Link to={`characters`} color="inherit">
-            Login
+          <Link to={`characters`} color="inherit" style={{ marginRight: 10 }}>
+            Characters
+          </Link>
+          <Link to={`episodes`} color="inherit">
+            Episodes
           </Link>
         </Toolbar>
       </AppBar>

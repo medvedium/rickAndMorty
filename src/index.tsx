@@ -11,7 +11,9 @@ import { ApolloProvider } from "@apollo/client";
 import client from "./apollo/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CharactersList from "./components/CharactersList/CharactersList";
-import Root from "./routes/root";
+import ErrorPage from "./components/ErrorPage/ErrorPage";
+import App from "./components/App/App";
+import HomePage from "./routes/HomePage";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -20,11 +22,18 @@ const root = ReactDOM.createRoot(
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root />,
-  },
-  {
-    path: "/characters",
-    element: <CharactersList />,
+    element: <App />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/",
+        element: <HomePage />,
+      },
+      {
+        path: "/characters",
+        element: <CharactersList />,
+      },
+    ],
   },
 ]);
 
