@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import { useQuery } from "@apollo/client";
 import { ALL_CHARACTERS } from "../../apollo/query";
 import Loader from "../Loader/Loader";
 import CharacterCard from "../CharacterCard/CharacterCard";
 import { Grid, Pagination, Stack } from "@mui/material";
+import {useNavigate, useParams} from "react-router-dom";
 
 const CharactersList = () => {
-  const [page, setPage] = useState<number>(1);
+  const params = useParams()
+  const navigate = useNavigate()
+  const page = Number(params.page)
   const {
     loading,
     error,
@@ -14,15 +17,12 @@ const CharactersList = () => {
   } = useQuery(ALL_CHARACTERS, { variables: { page: page } });
   let data = [];
   if (characters) data = characters.characters.results;
-  const currentPage = characters?.characters.info?.next
-    ? characters?.characters.info?.next - 1
-    : characters?.characters.info?.prev + 1;
 
   const handlePageChange = (
     event: React.ChangeEvent<unknown>,
     value: number
   ) => {
-    setPage(value);
+    navigate(`/characters/${value}`)
   };
 
   if (loading) return <Loader />;
@@ -39,7 +39,7 @@ const CharactersList = () => {
           count={characters?.characters.info?.pages}
           variant="outlined"
           shape="rounded"
-          defaultPage={currentPage}
+          page={page}
           onChange={handlePageChange}
         />
       </Stack>
