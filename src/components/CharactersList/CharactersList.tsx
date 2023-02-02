@@ -9,14 +9,16 @@ import {useNavigate, useParams} from "react-router-dom";
 const CharactersList = () => {
   const params = useParams()
   const navigate = useNavigate()
-  const page = Number(params.page)
+  const page = params.page ? Number(params.page) : 1
   const {
     loading,
     error,
     data: characters,
   } = useQuery(ALL_CHARACTERS, { variables: { page: page } });
   let data = [];
-  if (characters) data = characters.characters.results;
+  if (characters) {
+    data = characters.characters.results;
+  }
 
   const handlePageChange = (
     event: React.ChangeEvent<unknown>,

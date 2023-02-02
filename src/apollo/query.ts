@@ -5,26 +5,8 @@ export const ALL_CHARACTERS = gql`
     characters(page: $page) {
       results {
         name
-        status
         image
-        species
         id
-        gender
-        location {
-          name
-          residents {
-            name
-            created
-          }
-        }
-        origin {
-          id
-          name
-          residents {
-            image
-            created
-          }
-        }
       }
       info {
         count
