@@ -4,8 +4,9 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 
 const CharacterCard = ({ item }: any) => {
+  console.log(item);
   return (
-    <Grid item>
+    <Grid item lg={3} md={3} xs={6}>
       <Card sx={{ maxWidth: 345 }}>
         <CardMedia sx={{ height: 300 }} image={item.image} title={item.name} />
         <CardContent>
@@ -18,8 +19,9 @@ const CharacterCard = ({ item }: any) => {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small">Share</Button>
-          <Button size="small">Learn More</Button>
+          <Button size="small" href={`/character/${item.id}`}>
+            More info
+          </Button>
         </CardActions>
       </Card>
     </Grid>

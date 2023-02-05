@@ -17,3 +17,23 @@ export const ALL_CHARACTERS = gql`
     }
   }
 `;
+
+export const CHARACTER = gql`
+  query character ($id: ID!) {
+    character(id: $id) {
+      name
+      image
+      gender
+      id
+      status
+      species
+      type
+      created
+      episode {
+        name
+        episode
+        air_date
+      }
+    }
+  }
+`

@@ -14,6 +14,7 @@ import CharactersList from "./components/CharactersList/CharactersList";
 import ErrorPage from "./components/ErrorPage/ErrorPage";
 import App from "./components/App/App";
 import HomePage from "./routes/HomePage";
+import Character from "./components/Character/Character";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
         path: "/characters/:page",
         element: <CharactersList />,
       },
+      {
+        path: "/character/:id",
+        element: <Character />
+      }
     ],
   },
 ]);
