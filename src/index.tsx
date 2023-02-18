@@ -15,6 +15,8 @@ import ErrorPage from "./components/ErrorPage/ErrorPage";
 import App from "./components/App/App";
 import HomePage from "./routes/HomePage";
 import Character from "./components/Character/Character";
+import EpisodesList from "./components/EpisodesList/EpisodesList";
+import Episode from "./components/Episode/Episode";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -40,8 +42,20 @@ const router = createBrowserRouter([
       },
       {
         path: "/character/:id",
-        element: <Character />
-      }
+        element: <Character />,
+      },
+      {
+        path: "/episodes",
+        element: <EpisodesList />,
+      },
+      {
+        path: "/episodes/:page",
+        element: <EpisodesList />,
+      },
+      {
+        path: "/episode/:id",
+        element: <Episode />,
+      },
     ],
   },
 ]);

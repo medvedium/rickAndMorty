@@ -6,30 +6,33 @@ import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-router-dom";
+import {
+  Divider,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+} from "@mui/material";
 
 export default function AppHeader() {
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+    <Box>
+      <AppBar position="fixed">
         <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Rick And Morty API
-          </Typography>
-          <Link to={`characters`} color="inherit" style={{ marginRight: 10 }}>
-            Characters
+          <Link to={"/"}>
+            <Typography variant="h6" sx={{ my: 2 }}>
+              Rick and Morty
+            </Typography>
           </Link>
-          <Link to={`episodes`} color="inherit">
-            Episodes
-          </Link>
+          <Divider />
+          <List sx={{ display: "flex", marginLeft: "auto" }}>
+            <ListItem disablePadding sx={{ margin: "10px" }}>
+              <Link to={"/characters"}>Characters</Link>
+            </ListItem>
+            <ListItem disablePadding sx={{ margin: "10px" }}>
+              <Link to={"/episodes"}>Episodes</Link>
+            </ListItem>
+          </List>
         </Toolbar>
       </AppBar>
     </Box>

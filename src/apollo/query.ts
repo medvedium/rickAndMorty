@@ -18,8 +18,27 @@ export const ALL_CHARACTERS = gql`
   }
 `;
 
+export const ALL_EPISODES = gql`
+  query allEpisodes($page: Int) {
+    episodes(page: $page) {
+      info {
+        count
+        pages
+        next
+        prev
+      }
+      results {
+        id
+        name
+        air_date
+        episode
+      }
+    }
+  }
+`;
+
 export const CHARACTER = gql`
-  query character ($id: ID!) {
+  query character($id: ID!) {
     character(id: $id) {
       name
       image
@@ -36,4 +55,15 @@ export const CHARACTER = gql`
       }
     }
   }
-`
+`;
+
+export const EPISODE = gql`
+  query episode($id: ID!) {
+    episode(id: $id) {
+      name
+      id
+      air_date
+      episode
+    }
+  }
+`;

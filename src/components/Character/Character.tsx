@@ -6,7 +6,6 @@ import Loader from "../Loader/Loader";
 
 const Character = () => {
   const params = useParams();
-  // const navigate = useNavigate()
   const id = params.id && Number(params.id);
 
   const {
