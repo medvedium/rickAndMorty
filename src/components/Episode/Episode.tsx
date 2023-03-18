@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { EPISODE } from "../../apollo/query";
 import Loader from "../Loader/Loader";
@@ -22,6 +22,18 @@ const Episode = () => {
       <h1>{episode.episode.name}</h1>
       <p>{episode.episode.episode}</p>
       <p>{episode.episode.air_date}</p>
+      <p>Characters in episode:</p>
+      <ul>
+        {episode.episode.characters.map((item: any) => {
+          return (
+            <li>
+              <Link to={`/character/${item.id}`}>
+                <p>{item.name}</p>
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 };

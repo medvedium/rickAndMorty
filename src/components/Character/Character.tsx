@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { CHARACTER } from "../../apollo/query";
 import Loader from "../Loader/Loader";
@@ -32,7 +32,14 @@ const Character = () => {
       <ol>
         {person &&
           person?.episode.map((item: any, index: number) => (
-            <li key={index}> - {item.name}</li>
+            <li key={item.id} style={{ margin: "5px" }}>
+              <Link to={`/episode/${item.id}`}>
+                <span style={{ fontSize: "12px", color: "#aaa", marginRight: "8px" }}>
+                  {item.episode}
+                </span>
+                {item.name}
+              </Link>
+            </li>
           ))}
       </ol>
     </div>

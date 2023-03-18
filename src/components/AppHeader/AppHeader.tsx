@@ -3,16 +3,9 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
-import { Link } from "react-router-dom";
-import {
-  Divider,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemText,
-} from "@mui/material";
+import { Link, NavLink } from "react-router-dom";
+import { Divider, List, ListItem } from "@mui/material";
+import NavLinkItem from "../NavLinkItem/NavLinkItem";
 
 export default function AppHeader() {
   return (
@@ -26,12 +19,8 @@ export default function AppHeader() {
           </Link>
           <Divider />
           <List sx={{ display: "flex", marginLeft: "auto" }}>
-            <ListItem disablePadding sx={{ margin: "10px" }}>
-              <Link to={"/characters"}>Characters</Link>
-            </ListItem>
-            <ListItem disablePadding sx={{ margin: "10px" }}>
-              <Link to={"/episodes"}>Episodes</Link>
-            </ListItem>
+            <NavLinkItem text={"Characters"} destination={"/characters"} />
+            <NavLinkItem text={"Episodes"} destination={"/episodes"} />
           </List>
         </Toolbar>
       </AppBar>

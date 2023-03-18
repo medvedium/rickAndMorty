@@ -4,7 +4,6 @@ import { useQuery } from "@apollo/client";
 import { ALL_EPISODES } from "../../apollo/query";
 import Loader from "../Loader/Loader";
 import { Grid, Pagination, Stack } from "@mui/material";
-import CharacterCard from "../CharacterCard/CharacterCard";
 import EpisodeCard from "../EpisodeCard/EpisodeCard";
 
 const EpisodesList = () => {

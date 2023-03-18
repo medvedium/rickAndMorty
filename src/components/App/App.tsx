@@ -1,8 +1,7 @@
 import React from "react";
-import "./App.css";
 import AppHeader from "../AppHeader/AppHeader";
 import { Container } from "@mui/material";
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 
 function App() {
@@ -23,7 +22,9 @@ function App() {
           color: "#ffffff",
         }}
       >
-        <Typography>&copy;&nbsp;Andreev Alexey</Typography>
+        <Link to={"https://github.com/medvedium"}>
+          <Typography>&copy;&nbsp;Andreev Alexey</Typography>
+        </Link>
       </footer>
     </>
   );

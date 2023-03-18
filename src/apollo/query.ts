@@ -49,6 +49,7 @@ export const CHARACTER = gql`
       type
       created
       episode {
+        id
         name
         episode
         air_date
@@ -64,6 +65,10 @@ export const EPISODE = gql`
       id
       air_date
       episode
+      characters {
+        id
+        name
+      }
     }
   }
 `;

@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardActions, CardContent, CardMedia, Grid } from "@mui/material";
+import { Card, CardActions, CardContent, Grid } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 
@@ -8,9 +8,18 @@ const EpisodeCard = ({ item }: any) => {
     <Grid item lg={3} md={3} xs={6}>
       <Card sx={{ maxWidth: 345 }}>
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography
+            gutterBottom
+            variant="h5"
+            component="div"
+            sx={{
+              whiteSpace: "nowrap",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+            }}
+          >
             {item.name}
-          </Typography> 
+          </Typography>
           <Typography>Episode: {item.episode}</Typography>
           <Typography>Air Date: {item.air_date}</Typography>
         </CardContent>
