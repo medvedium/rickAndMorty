@@ -3,8 +3,8 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import { Link, NavLink } from "react-router-dom";
-import { Divider, List, ListItem } from "@mui/material";
+import { Link } from "react-router-dom";
+import { Divider, List } from "@mui/material";
 import NavLinkItem from "../NavLinkItem/NavLinkItem";
 
 export default function AppHeader() {

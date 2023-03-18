@@ -1,12 +1,15 @@
 import React from "react";
 import AppHeader from "../AppHeader/AppHeader";
 import { Container } from "@mui/material";
-import { Link, Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Typography from "@mui/material/Typography";
+import { Outlet } from "react-router-dom";
+import NavBar from "../NavBar/NavBar";
 
 function App() {
   return (
     <>
+      <NavBar />
       <AppHeader />
       <main style={{ flexGrow: "1" }}>
         <Container sx={{ paddingTop: "80px" }}>
