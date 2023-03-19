@@ -32,7 +32,7 @@ export default function NavBar() {
 		<nav
 			className="fixed z-1101 top-0 left-0 right-0 bg-transparent h-1"
 			style={{
-				zIndex: "1100",
+				zIndex: "1101",
 			}}>
 			<span
 				id="progress-bar"
