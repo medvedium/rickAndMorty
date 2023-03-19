@@ -1,32 +1,29 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
+import * as React from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import { Link } from "react-router-dom";
+import { Divider, List } from "@mui/material";
+import NavLinkItem from "../NavLinkItem/NavLinkItem";
 
 export default function AppHeader() {
-	return (
-		<Box sx={{ flexGrow: 1 }}>
-			<AppBar position="static">
-				<Toolbar>
-					<IconButton
-						size="large"
-						edge="start"
-						color="inherit"
-						aria-label="menu"
-						sx={{ mr: 2 }}
-					>
-						<MenuIcon />
-					</IconButton>
-					<Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-						Rick And Morty API
-					</Typography>
-					<Button color="inherit">Login</Button>
-				</Toolbar>
-			</AppBar>
-		</Box>
-	);
+  return (
+    <Box>
+      <AppBar position="fixed">
+        <Toolbar>
+          <Link to={"/"}>
+            <Typography variant="h6" sx={{ my: 2 }}>
+              Rick and Morty
+            </Typography>
+          </Link>
+          <Divider />
+          <List sx={{ display: "flex", marginLeft: "auto" }}>
+            <NavLinkItem text={"Characters"} destination={"/characters"} />
+            <NavLinkItem text={"Episodes"} destination={"/episodes"} />
+          </List>
+        </Toolbar>
+      </AppBar>
+    </Box>
+  );
 }
